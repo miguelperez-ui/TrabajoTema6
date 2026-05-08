@@ -1,0 +1,49 @@
+PAQUETE: excepciones
+--------------------
+Clase: FormatoFechaExcepcion (Hereda de Exception)
+- Atributos: Ninguno (solo mensaje a la superclase).
+- Métodos: Constructor(String mensaje).
+
+PAQUETE: modelo
+--------------------
+Clase: Reserva (Implementa Comparable<Reserva>)
+- Atributos (privados): 
+  - String codigo
+  - String nombreCliente
+  - int numHabitacion
+  - LocalDate fechaEntrada
+  - LocalDate fechaSalida
+- Constructores: 
+  - Reserva(codigo, nombreCliente, numHabitacion, fechaEntrada, fechaSalida)
+- Métodos:
+  - Getters: getCodigo(), getNumHabitacion(), getFechaEntrada(), getFechaSalida()
+  - Setters: setFechaEntrada(LocalDate), setFechaSalida(LocalDate)
+  - override equals(Object o): Compara por código.
+  - override compareTo(Reserva r): Ordena por numHabitacion y luego por fechaEntrada.
+  - override toString(): Formato específico de 2 líneas.
+
+PAQUETE: controlador
+--------------------
+Clase: GestorReservas
+- Atributos (privados):
+  - List<Reserva> listaReservas
+  - String RUTA_FICHERO
+- Constructores:
+  - GestorReservas() -> Llama a cargarDatos()
+- Métodos:
+  - boolean anadirReserva(Reserva r)
+  - Reserva buscarReserva(String codigo)
+  - void listarReservas()
+  - boolean modificarReserva(String codigo, LocalDate nuevaEntrada, LocalDate nuevaSalida)
+  - boolean eliminarReserva(String codigo)
+  - void guardarDatos()
+  - void cargarDatos()
+  - boolean comprobarSolapamiento(int habitacion, LocalDate entrada, LocalDate salida)
+
+PAQUETE: vista
+--------------------
+Clase: Main
+- Atributos: Ninguno
+- Métodos: 
+  - public static void main(String[] args) -> Menú principal y control de flujo.
+  - LocalDate leerFecha(Scanner, String) -> Valida y lanza FormatoFechaExcepcion.
