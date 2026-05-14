@@ -88,8 +88,8 @@ public class Main {
                         System.out.println("La reserva indicada no existe.");
                     } else {
                         try {
-                            LocalDate nuevaEntrada = leerFecha(scanner, "Nueva fecha de entrada (dd/mm/aaaa): [cite: 39] ");
-                            LocalDate nuevaSalida = leerFecha(scanner, "Nueva fecha de salida (dd/mm/aaaa): [cite: 39] ");
+                            LocalDate nuevaEntrada = leerFecha(scanner, "Nueva fecha de entrada (dd/mm/aaaa):  ");
+                            LocalDate nuevaSalida = leerFecha(scanner, "Nueva fecha de salida (dd/mm/aaaa):  ");
                             
                             if (nuevaEntrada.isAfter(nuevaSalida) || nuevaEntrada.isEqual(nuevaSalida)) {
                                 System.out.println("La fecha de salida debe ser posterior a la de entrada.");
@@ -139,13 +139,13 @@ public class Main {
         
         // Expresión regular para obligar a que se escriba exactamente dd/mm/aaaa
         if (!Pattern.matches("\\d{2}/\\d{2}/\\d{4}", fechaStr)) {
-            throw new FormatoFechaExcepcion("Excepción lanzada: El formato de la fecha no es válido. Debe ser dd/mm/aaaa. [cite: 14, 15]");
+            throw new FormatoFechaExcepcion("Excepción lanzada: El formato de la fecha no es válido. Debe ser dd/mm/aaaa. ");
         }
         
         try {
             return LocalDate.parse(fechaStr, FORMATTER);
         } catch (DateTimeParseException e) {
-            throw new FormatoFechaExcepcion("Excepción lanzada: Fecha inexistente o incorrecta. [cite: 15]");
+            throw new FormatoFechaExcepcion("Excepción lanzada: Fecha inexistente o incorrecta. ");
         }
     }
 }
