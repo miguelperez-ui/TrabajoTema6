@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Se encarga de gestionar la lista de reservas y su persistencia en ficheros.
+ * Se encarga de gestionar la lista de reservas y su persistencia en ficheros
  */
 public class GestorReservas {
     private List<Reserva> reservas;
