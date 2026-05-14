@@ -119,7 +119,7 @@ public class Main {
                     gestor.guardarDatos();
                     break;
 
-                case 0: // Salir 
+                case 0: // Salir.
                     System.out.println("Saliendo del sistema...");
                     break;
 
