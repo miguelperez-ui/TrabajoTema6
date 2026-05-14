@@ -33,7 +33,7 @@ public class GestorReservas {
             return false;
         }
         if (comprobarSolapamiento(nuevaReserva.getNumHabitacion(), nuevaReserva.getFechaEntrada(), nuevaReserva.getFechaSalida(), null)) {
-            System.out.println("Error: La habitación ya está reservada en esas fechas[cite: 20, 35].");
+            System.out.println("Error: La habitación ya está reservada en esas fechas.");
             return false;
         }
         reservas.add(nuevaReserva);
@@ -76,7 +76,7 @@ public class GestorReservas {
             return false;
         }
         if (comprobarSolapamiento(r.getNumHabitacion(), nuevaEntrada, nuevaSalida, r.getCodigo())) {
-            System.out.println("Error: Las nuevas fechas solapan con otra reserva existente[cite: 35].");
+            System.out.println("Error: Las nuevas fechas solapan con otra reserva existente.");
             return false;
         }
         r.setFechaEntrada(nuevaEntrada);
